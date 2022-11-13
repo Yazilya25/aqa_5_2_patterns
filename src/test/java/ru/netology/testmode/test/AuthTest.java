@@ -25,7 +25,7 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
-        $("[id='root']").shouldHave(Condition.text("Личный кабинет"));
+        $(".heading_theme_alfa-on-white").shouldHave(Condition.text("Личный кабинет")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -35,7 +35,7 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $("[data-test-id='action-login']").click();
-        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"));
+        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -45,7 +45,7 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $("[data-test-id='action-login']").click();
-        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"));
+        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Пользователь заблокирован")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -56,7 +56,7 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue((wrongLogin));
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
-        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"));
+        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль")).shouldBe(Condition.visible);
     }
 
     @Test
@@ -67,6 +67,6 @@ class AuthTest {
         $("[data-test-id='login'] input").setValue((registeredUser.getLogin()));
         $("[data-test-id='password'] input").setValue(wrongPassword);
         $("[data-test-id='action-login']").click();
-        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"));
+        $("[data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль")).shouldBe(Condition.visible);
     }
 }
